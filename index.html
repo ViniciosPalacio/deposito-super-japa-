@@ -1,266 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Japa Bebidas</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
 
-<style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:var(--font-sans)}
-h2.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
-body{background:var(--color-background-tertiary);padding-bottom:100px}
-.header{background:#003366;color:white;padding:16px 20px;text-align:center}
-.header h1{font-size:20px;font-weight:500;margin-bottom:12px}
-.search-wrap{position:relative;max-width:360px;margin:0 auto}
-.search-wrap i{position:absolute;left:10px;top:50%;transform:translateY(-50%);font-size:16px;color:rgba(255,255,255,0.6)}
-#searchBar{width:100%;padding:9px 12px 9px 34px;border-radius:var(--border-radius-md);border:none;font-size:14px;background:rgba(255,255,255,0.15);color:white}
-#searchBar::placeholder{color:rgba(255,255,255,0.6)}
-#searchBar:focus{outline:none;background:rgba(255,255,255,0.25)}
-.cats{display:flex;gap:8px;padding:12px 16px;overflow-x:auto;scrollbar-width:none}
-.cats::-webkit-scrollbar{display:none}
-.cat-btn{padding:6px 14px;border-radius:20px;border:0.5px solid var(--color-border-secondary);background:var(--color-background-primary);color:var(--color-text-secondary);font-size:13px;cursor:pointer;white-space:nowrap;flex-shrink:0}
-.cat-btn.active{background:#003366;color:white;border-color:#003366}
-.section-title{font-size:15px;font-weight:500;color:var(--color-text-secondary);padding:16px 16px 8px;letter-spacing:0.5px;text-transform:uppercase;font-size:11px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;padding:0 12px 12px}
-.card{background:var(--color-background-primary);border-radius:var(--border-radius-lg);border:0.5px solid var(--color-border-tertiary);padding:12px;text-align:center}
-.card-emoji{font-size:28px;margin-bottom:6px}
-.card h3{font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:4px;line-height:1.3}
-.card .price{color:#1a7a3c;font-weight:500;font-size:14px;margin-bottom:10px}
-.controls{display:flex;justify-content:center;align-items:center;gap:8px}
-.controls button{width:30px;height:30px;border-radius:50%;border:0.5px solid var(--color-border-secondary);background:var(--color-background-secondary);color:var(--color-text-primary);font-size:18px;cursor:pointer;line-height:1;display:flex;align-items:center;justify-content:center}
-.controls button:active{transform:scale(0.95)}
-.qty{font-size:15px;font-weight:500;min-width:20px;color:var(--color-text-primary)}
-.qty.has-qty{color:#003366}
-.cart-bar{position:fixed;bottom:0;left:0;width:100%;background:#25D366;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 -2px 10px rgba(0,0,0,0.15)}
-.cart-bar.hidden{display:none}
-.cart-info{color:white}
-.cart-items{font-size:12px;opacity:0.85}
-.cart-total{font-size:17px;font-weight:500}
-.cart-btn{background:white;color:#25D366;border:none;padding:10px 16px;border-radius:var(--border-radius-md);font-weight:500;font-size:14px;cursor:pointer}
-.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.45);display:flex;align-items:flex-end;justify-content:center;z-index:100}
-.modal-overlay.hidden{display:none}
-.modal{background:var(--color-background-primary);border-radius:var(--border-radius-lg) var(--border-radius-lg) 0 0;padding:24px 20px 32px;width:100%;max-width:480px}
-.modal h2{font-size:17px;font-weight:500;margin-bottom:20px;color:var(--color-text-primary)}
-.modal label{display:block;font-size:13px;color:var(--color-text-secondary);margin-bottom:4px;margin-top:14px}
-.modal input,.modal select{width:100%;padding:10px 12px;border-radius:var(--border-radius-md);border:0.5px solid var(--color-border-secondary);background:var(--color-background-primary);color:var(--color-text-primary);font-size:14px}
-.modal input:focus,.modal select:focus{outline:2px solid #003366;border-color:#003366}
-.pay-opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px}
-.pay-opt{padding:10px;border-radius:var(--border-radius-md);border:0.5px solid var(--color-border-secondary);background:var(--color-background-secondary);color:var(--color-text-primary);font-size:13px;cursor:pointer;text-align:center}
-.pay-opt.sel{border:2px solid #003366;background:#003366;color:white;font-weight:500}
-.loc-btn{display:flex;align-items:center;gap:8px;padding:10px 12px;border-radius:var(--border-radius-md);border:0.5px solid var(--color-border-secondary);background:var(--color-background-secondary);color:var(--color-text-secondary);font-size:13px;cursor:pointer;width:100%;margin-top:6px}
-.loc-btn i{font-size:16px;color:#003366}
-.loc-status{font-size:12px;color:#1a7a3c;margin-top:4px}
-.modal-actions{display:flex;gap:10px;margin-top:24px}
-.btn-cancel{flex:1;padding:12px;border-radius:var(--border-radius-md);border:0.5px solid var(--color-border-secondary);background:var(--color-background-secondary);color:var(--color-text-secondary);font-size:14px;cursor:pointer}
-.btn-send{flex:2;padding:12px;border-radius:var(--border-radius-md);border:none;background:#25D366;color:white;font-size:14px;font-weight:500;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px}
-.empty{text-align:center;padding:40px 20px;color:var(--color-text-secondary);font-size:14px}
-</style>
+    <div class="app-container">
+        
+        <h2 class="sr-only">Super Japa Bebidas — catálogo de produtos com carrinho</h2>
 
-<h2 class="sr-only">Super Japa Bebidas — catálogo de produtos com carrinho</h2>
-
-<div class="header">
-  <h1>🍺 Super Japa Bebidas</h1>
-  <div class="search-wrap">
-    <i class="ti ti-search" aria-hidden="true"></i>
-    <input type="text" id="searchBar" placeholder="Pesquisar produto..." oninput="filtrar()">
-  </div>
-</div>
-
-<div class="cats" id="cats"></div>
-<div id="product-list"></div>
-
-<div id="cart-bar" class="cart-bar hidden">
-  <div class="cart-info">
-    <div class="cart-items" id="cart-items-count"></div>
-    <div class="cart-total" id="cart-total"></div>
-  </div>
-  <button class="cart-btn" onclick="abrirModal()">
-    <i class="ti ti-brand-whatsapp" aria-hidden="true"></i> Pedir pelo Zap
-  </button>
-</div>
-
-<div id="modal-overlay" class="modal-overlay hidden" onclick="fecharModalFora(event)">
-  <div class="modal" id="modal">
-    <h2>Finalizar pedido</h2>
-    <div id="resumo-pedido" style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:12px;font-size:13px;color:var(--color-text-secondary);max-height:120px;overflow-y:auto;margin-bottom:4px"></div>
-    <label>Forma de pagamento</label>
-    <div class="pay-opts" id="pay-opts">
-      <div class="pay-opt" onclick="selPag(this,'Dinheiro')"><i class="ti ti-cash" aria-hidden="true"></i> Dinheiro</div>
-      <div class="pay-opt" onclick="selPag(this,'Cartão de débito')"><i class="ti ti-credit-card" aria-hidden="true"></i> Débito</div>
-      <div class="pay-opt" onclick="selPag(this,'Cartão de crédito')"><i class="ti ti-credit-card" aria-hidden="true"></i> Crédito</div>
-      <div class="pay-opt" onclick="selPag(this,'Pix')"><i class="ti ti-qrcode" aria-hidden="true"></i> Pix</div>
-    </div>
-    <label>Endereço de entrega</label>
-    <button class="loc-btn" onclick="pegarLocalizacao()" id="loc-btn">
-      <i class="ti ti-current-location"></i> Usar minha localização atual
-    </button>
-    <div id="loc-status" class="loc-status" style="display:none"></div>
-    <input type="text" id="endereco" placeholder="Ou digite o endereço..." style="margin-top:8px">
-    <div class="modal-actions">
-      <button class="btn-cancel" onclick="fecharModal()">Cancelar</button>
-      <button class="btn-send" onclick="enviar()"><i class="ti ti-brand-whatsapp" aria-hidden="true"></i> Enviar pedido</button>
-    </div>
-  </div>
-</div>
-
-<script>
-const produtos = [
-  {id:1,cat:"Cervejas",nome:"Brahma Latão 473ml",preco:5.50,emoji:"🍺"},
-  {id:2,cat:"Cervejas",nome:"Heineken Long Neck",preco:8.00,emoji:"🍺"},
-  {id:3,cat:"Cervejas",nome:"Skol Beats Senses Lata",preco:7.00,emoji:"🍺"},
-  {id:4,cat:"Destilados",nome:"Vodka Smirnoff 900ml",preco:40.00,emoji:"🍸"},
-  {id:5,cat:"Destilados",nome:"Jack Daniel's Preto 1L",preco:160.00,emoji:"🥃"},
-  {id:6,cat:"Energéticos",nome:"Red Bull Tradicional",preco:10.00,emoji:"⚡"},
-  {id:7,cat:"Refrigerantes",nome:"Coca Cola 2L",preco:12.00,emoji:"🥤"},
-  {id:8,cat:"Outros",nome:"Gelo de Coco Verde",preco:4.00,emoji:"🧊"},
-  {id:9,cat:"Outros",nome:"Carvão Frigogil 2,5kg",preco:12.00,emoji:"🔥"},
-];
-
-const cats = ["Todos",...[...new Set(produtos.map(p=>p.cat))]];
-let catAtiva = "Todos";
-let carrinho = {};
-let pagamento = "";
-let coords = null;
-
-function renderCats(){
-  const el = document.getElementById("cats");
-  el.innerHTML = cats.map(c=>`<button class="cat-btn${c===catAtiva?' active':''}" onclick="setcat('${c}')">${c}</button>`).join('');
-}
-
-function setcat(c){catAtiva=c;renderCats();renderProdutos();}
-
-function renderProdutos(){
-  const termo = document.getElementById("searchBar").value.toLowerCase();
-  const container = document.getElementById("product-list");
-  const catsFiltradas = catAtiva==="Todos" ? [...new Set(produtos.map(p=>p.cat))] : [catAtiva];
-  let html = "";
-  let total = 0;
-  catsFiltradas.forEach(cat=>{
-    const lista = produtos.filter(p=>p.cat===cat&&p.nome.toLowerCase().includes(termo));
-    if(!lista.length) return;
-    html += `<div class="section-title">${cat}</div><div class="grid">`;
-    lista.forEach(p=>{
-      const qtd = carrinho[p.id]?.quantidade||0;
-      if(qtd>0) total++;
-      html += `<div class="card">
-        <div class="card-emoji">${p.emoji}</div>
-        <h3>${p.nome}</h3>
-        <div class="price">R$ ${p.preco.toFixed(2).replace('.',',')}</div>
-        <div class="controls">
-          <button onclick="alt(${p.id},-1)" aria-label="Remover">−</button>
-          <span class="qty${qtd>0?' has-qty':''}" id="qtd-${p.id}">${qtd}</span>
-          <button onclick="alt(${p.id},1)" aria-label="Adicionar">+</button>
+        <div class="header">
+            <h1>🍺 Super Japa Bebidas</h1>
+            <div class="search-wrap">
+                <i class="ti ti-search" aria-hidden="true"></i>
+                <input type="text" id="searchBar" placeholder="Pesquisar produto..." oninput="filtrar()">
+            </div>
         </div>
-      </div>`;
-    });
-    html += `</div>`;
-  });
-  if(!html) html = `<div class="empty"><i class="ti ti-search-off" style="font-size:32px;display:block;margin-bottom:8px"></i>Nenhum produto encontrado</div>`;
-  container.innerHTML = html;
-  atualizarCarrinho();
-}
 
-function filtrar(){renderProdutos();}
+        <div class="cats" id="cats"></div>
+        <div id="product-list"></div>
 
-function alt(id,delta){
-  const p = produtos.find(x=>x.id===id);
-  if(!carrinho[id]) carrinho[id]={nome:p.nome,preco:p.preco,quantidade:0};
-  carrinho[id].quantidade += delta;
-  if(carrinho[id].quantidade<=0) delete carrinho[id];
-  const span = document.getElementById(`qtd-${id}`);
-  if(span){
-    const qtd = carrinho[id]?.quantidade||0;
-    span.textContent = qtd;
-    span.className = 'qty'+(qtd>0?' has-qty':'');
-  }
-  atualizarCarrinho();
-}
+        <div id="cart-bar" class="cart-bar hidden">
+            <div class="cart-info">
+                <div class="cart-items" id="cart-items-count"></div>
+                <div class="cart-total" id="cart-total"></div>
+            </div>
+            <button class="cart-btn" onclick="abrirModal()">
+                <i class="ti ti-brand-whatsapp" aria-hidden="true"></i> Pedir pelo Zap
+            </button>
+        </div>
 
-function atualizarCarrinho(){
-  let total=0, itens=0;
-  for(let id in carrinho){total+=carrinho[id].quantidade*carrinho[id].preco;itens+=carrinho[id].quantidade;}
-  const bar = document.getElementById("cart-bar");
-  if(total>0){
-    bar.classList.remove("hidden");
-    document.getElementById("cart-total").textContent=`Total: R$ ${total.toFixed(2).replace('.',',')}`;
-    document.getElementById("cart-items-count").textContent=`${itens} ${itens===1?'item':'itens'} no pedido`;
-  } else {
-    bar.classList.add("hidden");
-  }
-}
+    </div>
 
-function abrirModal(){
-  let resumo="";
-  let total=0;
-  for(let id in carrinho){
-    const it=carrinho[id];
-    const sub=it.quantidade*it.preco;
-    total+=sub;
-    resumo+=`<div style="display:flex;justify-content:space-between;padding:3px 0">${it.quantidade}× ${it.nome}<span>R$ ${sub.toFixed(2).replace('.',',')}</span></div>`;
-  }
-  resumo+=`<div style="display:flex;justify-content:space-between;padding:6px 0 0;border-top:0.5px solid var(--color-border-tertiary);margin-top:6px;font-weight:500;color:var(--color-text-primary)">Total<span>R$ ${total.toFixed(2).replace('.',',')}</span></div>`;
-  document.getElementById("resumo-pedido").innerHTML=resumo;
-  document.getElementById("modal-overlay").classList.remove("hidden");
-}
+    <div id="modal-overlay" class="modal-overlay hidden" onclick="fecharModalFora(event)">
+        <div class="modal" id="modal">
+            <h2>Finalizar pedido</h2>
+            <div id="resumo-pedido" class="resumo-box"></div>
+            
+            <label>Forma de pagamento</label>
+            <div class="pay-opts" id="pay-opts">
+                <div class="pay-opt" onclick="selPag(this,'Dinheiro')"><i class="ti ti-cash" aria-hidden="true"></i> Dinheiro</div>
+                <div class="pay-opt" onclick="selPag(this,'Cartão de débito')"><i class="ti ti-credit-card" aria-hidden="true"></i> Débito</div>
+                <div class="pay-opt" onclick="selPag(this,'Cartão de crédito')"><i class="ti ti-credit-card" aria-hidden="true"></i> Crédito</div>
+                <div class="pay-opt" onclick="selPag(this,'Pix')"><i class="ti ti-qrcode" aria-hidden="true"></i> Pix</div>
+            </div>
+            
+            <label>Endereço de entrega</label>
+            <button class="loc-btn" onclick="pegarLocalizacao()" id="loc-btn">
+                <i class="ti ti-current-location"></i> Usar minha localização atual
+            </button>
+            <div id="loc-status" class="loc-status" style="display:none"></div>
+            <input type="text" id="endereco" placeholder="Ou digite o endereço..." style="margin-top:8px">
+            
+            <div class="modal-actions">
+                <button class="btn-cancel" onclick="fecharModal()">Cancelar</button>
+                <button class="btn-send" onclick="enviar()"><i class="ti ti-brand-whatsapp" aria-hidden="true"></i> Enviar pedido</button>
+            </div>
+        </div>
+    </div>
 
-function fecharModal(){document.getElementById("modal-overlay").classList.add("hidden");}
-function fecharModalFora(e){if(e.target===document.getElementById("modal-overlay"))fecharModal();}
-
-function selPag(el,pag){
-  pagamento=pag;
-  document.querySelectorAll(".pay-opt").forEach(x=>x.classList.remove("sel"));
-  el.classList.add("sel");
-}
-
-function pegarLocalizacao(){
-  const btn = document.getElementById("loc-btn");
-  const status = document.getElementById("loc-status");
-  btn.innerHTML='<i class="ti ti-loader" aria-hidden="true"></i> Obtendo localização...';
-  status.style.display="none";
-  if(!navigator.geolocation){
-    btn.innerHTML='<i class="ti ti-current-location"></i> Usar minha localização atual';
-    status.style.display="block";
-    status.style.color="var(--color-text-danger)";
-    status.textContent="Geolocalização não disponível neste navegador.";
-    return;
-  }
-  navigator.geolocation.getCurrentPosition(pos=>{
-    coords={lat:pos.coords.latitude,lng:pos.coords.longitude};
-    fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${coords.lat}&lon=${coords.lng}`)
-      .then(r=>r.json())
-      .then(d=>{
-        const end = d.display_name||`${coords.lat.toFixed(5)}, ${coords.lng.toFixed(5)}`;
-        document.getElementById("endereco").value=end;
-        btn.innerHTML='<i class="ti ti-check" aria-hidden="true"></i> Localização obtida';
-        status.style.display="block";
-        status.style.color="#1a7a3c";
-        status.textContent="✓ Endereço preenchido automaticamente";
-      }).catch(()=>{
-        document.getElementById("endereco").value=`${coords.lat.toFixed(5)}, ${coords.lng.toFixed(5)}`;
-        btn.innerHTML='<i class="ti ti-check"></i> Localização obtida (coordenadas)';
-        status.style.display="block";status.style.color="#1a7a3c";
-        status.textContent="✓ Coordenadas preenchidas";
-      });
-  },()=>{
-    btn.innerHTML='<i class="ti ti-current-location"></i> Usar minha localização atual';
-    status.style.display="block";status.style.color="var(--color-text-danger)";
-    status.textContent="Permissão de localização negada.";
-  });
-}
-
-function enviar(){
-  const end = document.getElementById("endereco").value.trim();
-  if(!pagamento){alert("Selecione a forma de pagamento.");return;}
-  if(!end){alert("Informe o endereço de entrega.");return;}
-  const tel="5522988303921";
-  let txt="Olá, Super Japa! Gostaria de fazer o seguinte pedido:%0A%0A";
-  let total=0;
-  for(let id in carrinho){
-    const it=carrinho[id];const sub=it.quantidade*it.preco;total+=sub;
-    txt+=`*${it.quantidade}x* ${it.nome} - R$ ${sub.toFixed(2).replace('.',',')}%0A`;
-  }
-  txt+=`%0A*Total: R$ ${total.toFixed(2).replace('.',',')}*`;
-  txt+=`%0A*Pagamento:* ${pagamento}`;
-  txt+=`%0A*Endereço:* ${encodeURIComponent(end)}`;
-  txt+=`%0A%0AAguardo confirmação do pedido!`;
-  window.open(`https://wa.me/${tel}?text=${txt}`,'_blank');
-  fecharModal();
-}
-
-renderCats();
-renderProdutos();
-</script>
+    <script src="static/script.js"></script>
+</body>
+</html>
