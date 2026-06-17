@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Japa - Depósito de Bebidas</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <header>
+        <h1>Super Japa Bebidas</h1>
+        <input type="text" id="searchBar" placeholder="Pesquisar produto..." list="lista-produtos" onkeyup="filtrarProdutos()" oninput="filtrarProdutos()">
+        <datalist id="lista-produtos">
+            </datalist>
+    </header>
+
+    <main>
+        <div id="product-list" class="grid-container">
+            </div>
+    </main>
+
+    <div id="cart-summary" class="cart-bar hidden">
+        <span id="cart-total">Total: R$ 0,00</span>
+        <button onclick="enviarWhatsApp()">Finalizar Pedido no Zap</button>
+    </div>
+
+    <script src="static/script.js"></script>
+</body>
+</html>
