@@ -214,7 +214,6 @@ function iniciarAutocomplete() {
 
   const dropdown = document.createElement("ul");
   dropdown.id = "autocomplete-list";
-  // O CSS INLINE ESTÁ AGORA USANDO AS VARIÁVEIS NATIVAS DO MODO CLARO DO SEU PROJETO
   dropdown.style.cssText = `
     position:absolute; top:100%; left:0; right:0; z-index:999;
     background: var(--color-background-primary);
@@ -265,7 +264,6 @@ function iniciarAutocomplete() {
       return;
     }
 
-    // CORES CORRIGIDAS NA RENDERIZAÇÃO DA LISTA
     dropdown.innerHTML = sugestoes.map((p, i) => {
       const nomeDest = destacarTermo(p.nome, input.value);
       return `<li data-index="${i}" data-nome="${p.nome}"
@@ -283,7 +281,7 @@ function iniciarAutocomplete() {
     dropdown.querySelectorAll("li").forEach(li => {
       li.addEventListener("mouseenter", () => {
         dropdown.querySelectorAll("li").forEach(x => x.style.background = "");
-        li.style.background = "var(--color-background-secondary)"; // HIGHLIGHT CORRIGIDO
+        li.style.background = "var(--color-background-secondary)";
       });
       li.addEventListener("mouseleave", () => { li.style.background = ""; });
       li.addEventListener("mousedown", (e) => {
@@ -368,6 +366,27 @@ function mudarVariante(prodId, variante) {
   span.className = 'qty';
 }
 
+// ============================================================
+// FUNÇÃO GLOBAL DE FALLBACK SUPORTA TODOS OS TIPOS DE EXTENSÃO
+// ============================================================
+function carregarImagemComFallback(img) {
+  const id = img.getAttribute('data-id');
+  let extIndex = parseInt(img.getAttribute('data-ext') || '0', 10);
+  
+  // Lista exaustiva ordenada para testar todos os tipos de arquivos possíveis
+  const extensoes = ['jpeg', 'png', 'webp', 'jfif', 'svg', 'JPG', 'JPEG', 'PNG', 'WEBP'];
+  
+  if (extIndex < extensoes.length) {
+    const proxExt = extensoes[extIndex];
+    img.setAttribute('data-ext', extIndex + 1);
+    img.src = `static/assets/${id}.${proxExt}`;
+  } else {
+    // Se estourar todas as opções, renderiza a imagem default de segurança
+    img.onerror = null;
+    img.src = 'static/assets/default.jpg';
+  }
+}
+
 function renderProdutos(){
   const termo = document.getElementById("searchBar").value.toLowerCase();
   const container = document.getElementById("product-list");
@@ -389,7 +408,6 @@ function renderProdutos(){
     }
 
     lista.forEach(p => {
-      const imgPath = `static/assets/${p.id}.jpg`;
       let packSelectHTML = "";
       if (p.pack) {
         packSelectHTML = `
@@ -401,9 +419,10 @@ function renderProdutos(){
         </div>`;
       }
 
+      // O HTML inicia puxando .jpg. Caso falhe, dispara a esteira de validação dinâmica por data-attributes
       html += `<div class="card">
         <div class="card-img-wrap">
-          <img src="${imgPath}" alt="${p.nome}" class="card-img" onerror="this.src='static/assets/default.jpg'; this.onerror=null;">
+          <img src="static/assets/${p.id}.jpg" alt="${p.nome}" class="card-img" data-id="${p.id}" data-ext="0" onerror="carregarImagemComFallback(this)">
         </div>
         <h3>${p.nome}</h3>
         ${packSelectHTML}
@@ -488,16 +507,13 @@ function selPag(el, pag){
   el.classList.add("sel");
 }
 
-// ============================================================
-// GEOLOCALIZAÇÃO OTIMIZADA E COM TRATAMENTO DE ERRO
-// ============================================================
 function pegarLocalizacao(){
   const btn = document.getElementById("loc-btn");
   const status = document.getElementById("loc-status");
   const inputEnd = document.getElementById("endereco");
   
   btn.innerHTML = '<i class="ti ti-loader"></i> Obtendo...';
-  btn.disabled = true; // Impede spam de cliques
+  btn.disabled = true;
 
   if (!navigator.geolocation){ 
     alert("Seu navegador não suporta geolocalização."); 
@@ -506,14 +522,12 @@ function pegarLocalizacao(){
     return; 
   }
 
-  // Opções para forçar o GPS do celular a trabalhar direito e não ficar carregando infinitamente
   const options = { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 };
 
   navigator.geolocation.getCurrentPosition(
     pos => {
       coords = {lat: pos.coords.latitude, lng: pos.coords.longitude};
       
-      // Chamada da API com tratamento de erros (Try/Catch interno)
       fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${coords.lat}&lon=${coords.lng}`)
         .then(r => {
           if(!r.ok) throw new Error("Erro na API de mapas");
@@ -521,7 +535,6 @@ function pegarLocalizacao(){
         })
         .then(d => {
           let enderecoFormatado = d.display_name;
-          // Limpeza do endereço para ficar legível para o motoboy
           if(d.address) {
             const r = d.address;
             const rua = r.road || r.pedestrian || "";
@@ -541,7 +554,7 @@ function pegarLocalizacao(){
           inputEnd.value = `${coords.lat}, ${coords.lng}`;
           status.style.display = "block"; 
           status.style.color = "#d9534f";
-          status.textContent = "⚠️ Coordenadas obtidas, mas falha ao buscar o nome da rua. Por favor, digite manualmente ou envie as coordenadas.";
+          status.textContent = "⚠️ Coordenadas obtidas, mas falha ao buscar o nome da rua. Por favor, digite manualmente.";
         })
         .finally(() => {
           btn.innerHTML = '<i class="ti ti-current-location"></i> Usar minha localização atual';
@@ -567,15 +580,11 @@ function pegarLocalizacao(){
   );
 }
 
-// ============================================================
-// ENVIO DO WHATSAPP OTIMIZADO
-// ============================================================
 function enviar(){
   const end = document.getElementById("endereco").value.trim();
   if (!pagamento){ alert("Selecione a forma de pagamento."); return; }
   if (!end){ alert("Informe o endereço de entrega."); return; }
   
-  // Usando \n limpo ao invés de misturar %0A e texto puro
   let txt = "Olá, Super Japa! Gostaria de fazer o seguinte pedido:\n\n";
   let total = 0;
   
@@ -587,7 +596,6 @@ function enviar(){
   
   txt += `\n*Total:* R$ ${total.toFixed(2).replace('.',',')}\n*Pagamento:* ${pagamento}\n*Endereço:* ${end}`;
   
-  // O encodeURIComponent() garante que os espaços, acentos e quebras de linha não quebrem o link
   window.open(`https://wa.me/5522988303921?text=${encodeURIComponent(txt)}`, '_blank');
   fecharModal();
 }
