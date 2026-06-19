@@ -64,8 +64,9 @@ h2.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip
 .pay-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .pay-opt { padding: 12px; border-radius: 8px; border: 1px solid var(--color-border-secondary); background: var(--color-background-secondary); font-size: 14px; font-weight: 500; cursor: pointer; text-align: center; display: flex; align-items: center; justify-content: center; gap: 6px; }
 .pay-opt.sel { border: 2px solid var(--brand-blue); background: rgba(0, 51, 102, 0.05); color: var(--brand-blue); }
-.loc-btn { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; border-radius: 8px; border: 1px solid var(--brand-blue); background: transparent; color: var(--brand-blue); font-size: 14px; font-weight: 600; cursor: pointer; width: 100%; margin-bottom: 10px; }
-.loc-status { font-size: 13px; color: #1a7a3c; margin-bottom: 10px; font-weight: 500; }
+.loc-btn { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; border-radius: 8px; border: 1px solid var(--brand-blue); background: transparent; color: var(--brand-blue); font-size: 14px; font-weight: 600; cursor: pointer; width: 100%; margin-bottom: 10px; transition: 0.2s; }
+.loc-btn:disabled { opacity: 0.5; cursor: not-allowed; } /* Adicionado para evitar múltiplos cliques no GPS */
+.loc-status { font-size: 13px; margin-bottom: 10px; font-weight: 500; }
 .modal-actions { display: flex; gap: 12px; margin-top: 24px; }
 .btn-cancel { flex: 1; padding: 14px; border-radius: 8px; border: none; background: var(--color-background-tertiary); font-size: 15px; font-weight: 600; cursor: pointer; }
 .btn-send { flex: 2; padding: 14px; border-radius: 8px; border: none; background: var(--brand-green); color: white; font-size: 15px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; }

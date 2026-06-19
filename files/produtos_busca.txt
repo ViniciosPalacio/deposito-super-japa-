@@ -1,0 +1,187 @@
+1|cerveja brahma latão 473ml lata
+2|cerveja antarctica latão 473ml lata
+3|cerveja corona latão 473ml lata
+4|cerveja budweiser latão 473ml lata
+5|cerveja spaten latão 473ml lata
+6|cerveja original latão 473ml lata
+7|cerveja stella artois latão 473ml lata
+8|cerveja heineken latão 473ml lata
+9|cerveja amstel latão 473ml lata
+10|cerveja império latão 473ml lata
+11|cerveja itaipava latão 473ml lata
+12|cerveja lokal latão 473ml lata
+13|cerveja corona long neck 330ml
+14|cerveja budweiser long neck 330ml
+15|cerveja spaten long neck 330ml
+16|cerveja stella pure gold long neck 330ml
+17|cerveja stella artois puro malte 330ml
+18|cerveja heineken long neck 330ml
+19|cerveja império lager long neck 330ml
+20|cerveja império gold long neck 330ml
+21|cerveja império ultra long neck 330ml
+22|cerveja brahma garrafinha 300ml
+23|cerveja antarctica garrafinha 300ml
+24|cerveja original garrafinha 300ml
+25|cerveja brahma zero álcool lata
+26|cerveja heineken zero álcool long neck
+27|vodka absolut 750ml garrafa
+28|vodka smirnoff 900ml garrafa
+29|vodka kovak 1 litro garrafa
+30|vodka leonoff 900ml garrafa
+31|gin okay dry 900ml garrafa
+32|gin leonoff dry 900ml garrafa
+33|gin leonoff purple fresh 900ml
+34|gin leonoff watermelon 900ml
+35|gin leonoff pineberry 900ml
+36|gin rocks tradicional 1 litro
+37|gin rocks sicilians lemon 1 litro
+38|gin rocks strawberry 1 litro
+39|gin rocks watermelon 1 litro
+40|gin rocks sunset 1 litro
+41|gin queensland tradicional 900ml
+42|gin queensland melancia 900ml
+43|gin queensland maçã verde 900ml
+44|gin queensland tropical 900ml
+45|gin queensland strawberry 900ml
+46|gin tônica queensland frutas vermelhas lata 355ml
+47|gin tônica queensland melancia lata 355ml
+48|gin tônica queensland maçã verde lata 355ml
+49|gin tônica amora lata 355ml
+50|gin tônica queensland pitaya lata 355ml
+51|gin tônica queensland tangerina lata 355ml
+52|gin tônica queensland pink lemonade lata 355ml
+53|skol beats senses lata
+54|skol beats gt lata
+55|skol beats red mix lata
+56|skol beats red mix long neck
+57|ice cabaré frutas vermelhas lata
+58|ice 51 balada lata
+59|ice 51 limão lata
+60|ice kovak limão lata
+61|ice smirnoff limão lata
+62|ice syn limão long neck
+63|ice syn limão garrafa plástica
+64|ice we mix morango kiwi lata
+65|ice we mix pêssego chá preto lata
+66|ice we mix frutas verdes chá verde lata
+67|ice we mix limão gengibre lata
+68|ice we mix melancia hortelã lata
+69|pink moon rosé drink 275ml lata
+70|pink moon rosé drink 750ml garrafa
+71|pink moon pêssego drink 275ml
+72|pink moon uva drink 275ml
+73|pink moon uva drink 600ml garrafa
+74|stempel uva drink 600ml garrafa
+75|stempel abacaxi drink 600ml garrafa
+76|stempel rosé drink 600ml garrafa
+77|whisky ballantines 1 litro garrafa
+78|whisky ballantines 750ml garrafa
+79|whisky cavalo branco 1 litro garrafa
+80|whisky cavalo branco 500ml garrafa
+81|whisky johnnie walker red label 1 litro
+82|whisky johnnie walker red label 750ml
+83|jack daniels tennessee apple 1 litro
+84|jack daniels old no 7 1 litro
+85|jack daniels tennessee fire 1 litro
+86|whisky buchanans 12 years 1 litro
+87|whisky buchanans 12 years 750ml
+88|whisky old parr 1 litro garrafa
+89|whisky woodford reserve 750ml
+90|licor 43 edição especial garrafa
+91|baileys irish cream miniatura 50ml
+92|licor bananinha reggiane garrafa
+93|amarula cream liqueur 750ml garrafa
+94|cachaça da roça menta garrafa
+95|cachaça da roça paçoquita garrafa
+96|cachaça praianinha 970ml garrafa
+97|pytu amarelinha cachaça garrafa
+98|pytu limão cachaça garrafa
+99|cachaça 51 um litro garrafa
+100|velho barreiro cachaça 1 litro garrafa
+101|barrigudinha cachaça garrafa
+102|caninha da roça cachaça garrafa
+103|vinho pérgola suave tinto 1 litro
+104|vinho galiotto suave 1 litro garrafa
+105|vinho casa rodrigues suave 1 litro
+106|vinho casa rodrigues seco 1 litro
+107|vinho colorado suave 1 litro garrafa
+108|vinho colorado seco 1 litro garrafa
+109|combo queensland sunshine whisky tradicional
+110|combo queensland sunshine whisky coco
+111|combo queensland sunshine vodka manga
+112|combo queensland sunshine gin melancia
+113|energético queensland melancia 2 litros
+114|energético queensland maçã verde 2 litros
+115|red hot energético 2 litros garrafa
+116|minotauro energético 2 litros garrafa
+117|baly energético tradicional 2 litros
+118|baly energético maçã verde 2 litros
+119|baly energético melancia 2 litros
+120|baly energético tadala 2 litros
+121|baly energético tropical 2 litros
+122|one energético 2 litros garrafa
+123|red bull energy drink tradicional lata
+124|red bull tropical lata
+125|monster energy drink tradicional lata
+126|monster energy mango loca lata
+127|sukita uva 2 litros garrafa
+128|sukita laranja 2 litros garrafa
+129|coca cola 2 litros garrafa
+130|coca cola retornável 2 litros garrafa
+131|h2oh limoneto 1,5 litros garrafa
+132|mineirinho guaraná 2 litros garrafa
+133|guaraná antarctica 2 litros garrafa
+134|grapete uva 2 litros garrafa
+135|flexa cola 2 litros garrafa
+136|flexa laranja refrigerante 2 litros
+137|flexa uva refrigerante 2 litros
+138|flexa guaraná refrigerante 2 litros
+139|coca cola lata 350ml
+140|guaraná antarctica lata 350ml
+141|gatorade laranja 500ml
+142|gatorade blueberry 500ml
+143|gatorade uva 500ml
+144|gatorade morango 500ml
+145|água saborizada maçã verde garrafa
+146|água saborizada tangerina garrafa
+147|água saborizada limão garrafa
+148|água mineral sem gás 510ml garrafa
+149|água mineral com gás 510ml garrafa
+150|água mineral sem gás 1,5 litros garrafa
+151|água mineral com gás 1,5 litros garrafa
+152|pirakids suco infantil caixinha
+153|toddynho achocolatado caixinha
+154|h2oh limoneto 500ml garrafa
+155|guaravita energético 290ml
+156|guaraplus energético 290ml
+157|galão água mineral cascataí 20 litros
+158|galão água mineral 20 litros
+159|gelo filtrado 5kg saco
+160|gelo escama 20kg saco
+161|gelo de coco verde
+162|gelo de coco maçã verde
+163|gelo de coco melancia
+164|gelo de coco maracujá
+165|gelo de coco morango
+166|carvão vegetal frigogil 2kg
+167|carvão vegetal oliveira 2kg
+168|carvão vegetal araruama 2,4kg
+169|carvão vegetal araruama 5,5kg
+170|sal grosso churrasco pacote
+171|sal parrilla argentino 1kg
+172|sal parrilla chimichurri 1kg
+173|sal parrilla lemon pepper 250g
+174|sal parrilla argentino 250g
+175|sal parrilla chimichurri 250g
+176|sal parrilla defumado 250g
+177|pasta pão de alho bacon 500g
+178|pasta pão de alho queijo 500g
+179|pasta pão de alho tradicional 500g
+180|molho churrasco grelhado
+181|molho alho tempero churrasco
+182|molho pimenta vulcão
+183|molho pimenta biquinho
+184|farofa picanha churrasco
+185|farofa tradicional churrasco
+186|farofa costelinha churrasco
+187|tempero completo churrasco

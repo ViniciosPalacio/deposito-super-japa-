@@ -1,71 +1,197 @@
-// BANCO DE DADOS COMPLETO DA PLANILHA
+// BANCO DE DADOS COMPLETO
 const produtos = [
-  // --- CERVEJAS ---
   {id: 1, cat: "Cervejas", nome: "Brahma Latão 473ml", preco: 5.50, pack: {nome: "Caixa c/ 12", preco: 66.00}, destaque: true},
   {id: 2, cat: "Cervejas", nome: "Antarctica Latão 473ml", preco: 5.50, pack: {nome: "Caixa c/ 12", preco: 66.00}},
   {id: 3, cat: "Cervejas", nome: "Corona Latão 473ml", preco: 7.50, pack: {nome: "Caixa c/ 12", preco: 90.00}, destaque: true},
   {id: 4, cat: "Cervejas", nome: "Budweiser Latão 473ml", preco: 6.50, pack: {nome: "Caixa c/ 12", preco: 78.00}},
   {id: 5, cat: "Cervejas", nome: "Spaten Latão 473ml", preco: 6.50, pack: {nome: "Caixa c/ 12", preco: 78.00}, destaque: true},
-  {id: 6, cat: "Cervejas", nome: "Heineken Latão 473ml", preco: 7.00, pack: {nome: "Caixa c/ 12", preco: 84.00}, destaque: true},
-  {id: 7, cat: "Cervejas", nome: "Império Latão 473ml", preco: 5.00, pack: {nome: "Caixa c/ 12", preco: 60.00}},
-  
-  // --- LONG NECK E OUTROS ---
-  {id: 8, cat: "Cervejas", nome: "Heineken Long Neck 330ml", preco: 8.00, pack: {nome: "Pack c/ 6", preco: 48.00}, destaque: true},
-  {id: 9, cat: "Cervejas", nome: "Corona Long Neck 330ml", preco: 8.50, pack: {nome: "Pack c/ 6", preco: 51.00}},
-  {id: 10, cat: "Cervejas", nome: "Skol Beats Senses Lata", preco: 7.00, destaque: true},
-
-  // --- DESTILADOS E WHISKY ---
-  {id: 11, cat: "Destilados", nome: "Vodka Smirnoff 900ml", preco: 40.00, destaque: true},
-  {id: 12, cat: "Destilados", nome: "Vodka Absolut 750ml", preco: 85.00},
-  {id: 13, cat: "Destilados", nome: "Gin Rocks Tradicional 1L", preco: 35.00},
-  {id: 14, cat: "Destilados", nome: "Whisky Red Label 1L", preco: 95.00, destaque: true},
-  {id: 15, cat: "Destilados", nome: "Whisky Jack Daniels Trad.", preco: 160.00, destaque: true},
-  {id: 16, cat: "Destilados", nome: "Whisky Cavalo Branco 1L", preco: 75.00},
-
-  // --- ENERGÉTICOS ---
-  {id: 17, cat: "Energéticos", nome: "Red Bull Tradicional", preco: 10.00, pack: {nome: "Pack c/ 4", preco: 40.00}, destaque: true},
-  {id: 18, cat: "Energéticos", nome: "Monster Tradicional", preco: 12.00},
-  {id: 19, cat: "Energéticos", nome: "Baly Tradicional 2L", preco: 13.00, destaque: true},
-
-  // --- REFRIGERANTES E ÁGUA ---
-  {id: 20, cat: "Refrigerantes", nome: "Coca Cola 2L", preco: 12.00, destaque: true},
-  {id: 21, cat: "Refrigerantes", nome: "Guaraná Antarctica 2L", preco: 12.00},
-  {id: 22, cat: "Refrigerantes", nome: "Coca Cola Lata 350ml", preco: 5.50},
-  {id: 23, cat: "Refrigerantes", nome: "Água Mineral S/ Gás 510ml", preco: 3.00},
-  {id: 24, cat: "Refrigerantes", nome: "Água Mineral C/ Gás 510ml", preco: 3.50},
-
-  // --- GELO E CARVÃO ---
-  {id: 25, cat: "Gelo/Carvão", nome: "Gelo Filtrado 5kg", preco: 15.00, destaque: true},
-  {id: 26, cat: "Gelo/Carvão", nome: "Gelo Escama 20kg", preco: 30.00},
-  {id: 27, cat: "Gelo/Carvão", nome: "Gelo de Coco Verde", preco: 4.00, destaque: true},
-  {id: 28, cat: "Gelo/Carvão", nome: "Carvão Frigogil 2kg", preco: 12.00, destaque: true},
-
-  // --- DOCES ---
-  {id: 29, cat: "Doces", nome: "Halls Extra Forte", preco: 2.50},
-  {id: 30, cat: "Doces", nome: "Halls Morango", preco: 2.50},
-  {id: 31, cat: "Doces", nome: "Mentos Purefresh Freshmint", preco: 3.00},
-  {id: 32, cat: "Doces", nome: "Fini Dentadura", preco: 2.00},
-  {id: 33, cat: "Doces", nome: "Paçoquinha Rolha", preco: 1.00},
-  {id: 34, cat: "Doces", nome: "Pé de Moça", preco: 2.00},
-
-  // --- SALGADOS E PETISCOS ---
-  {id: 35, cat: "Petiscos", nome: "Torcida Queijo", preco: 3.00},
-  {id: 36, cat: "Petiscos", nome: "Torcida Churrasco", preco: 3.00},
-  {id: 37, cat: "Petiscos", nome: "Batata Ruffles 17g", preco: 2.00},
-
-  // --- TABACARIA E GERIAS ---
-  {id: 38, cat: "Tabacaria", nome: "Maço Dunhill Carlton Blend", preco: 14.00},
-  {id: 39, cat: "Tabacaria", nome: "Maço Lucky Strike Double Ice", preco: 11.75},
-  {id: 40, cat: "Tabacaria", nome: "Seda OCB", preco: 7.00},
-  {id: 41, cat: "Tabacaria", nome: "Isqueiro Bic Max", preco: 8.00},
-
-  // --- CHURRASCO ---
-  {id: 42, cat: "Churrasco", nome: "Sal Grosso", preco: 5.00},
-  {id: 43, cat: "Churrasco", nome: "Sal Parrilha Argentino 1kg", preco: 12.00},
-  {id: 44, cat: "Churrasco", nome: "Pasta Pão de Alho Trad. 500g", preco: 15.00}
+  {id: 6, cat: "Cervejas", nome: "Original Latão 473ml", preco: 6.50, pack: {nome: "Caixa c/ 12", preco: 78.00}},
+  {id: 7, cat: "Cervejas", nome: "Stella Artois Latão 473ml", preco: 7.50, pack: {nome: "Caixa c/ 12", preco: 90.00}},
+  {id: 8, cat: "Cervejas", nome: "Heineken Latão 473ml", preco: 7.00, pack: {nome: "Caixa c/ 12", preco: 84.00}, destaque: true},
+  {id: 9, cat: "Cervejas", nome: "Amstel Latão 473ml", preco: 5.50, pack: {nome: "Caixa c/ 12", preco: 66.00}},
+  {id: 10, cat: "Cervejas", nome: "Império Latão 473ml", preco: 5.00, pack: {nome: "Caixa c/ 12", preco: 60.00}},
+  {id: 11, cat: "Cervejas", nome: "Itaipava Latão 473ml", preco: 4.50, pack: {nome: "Caixa c/ 12", preco: 54.00}},
+  {id: 12, cat: "Cervejas", nome: "Lokal Latão 473ml", preco: 4.00, pack: {nome: "Caixa c/ 12", preco: 48.00}},
+  {id: 13, cat: "Cervejas", nome: "Corona Long Neck 330ml", preco: 8.50, pack: {nome: "Pack c/ 6", preco: 51.00}, destaque: true},
+  {id: 14, cat: "Cervejas", nome: "Budweiser Long Neck 330ml", preco: 7.50, pack: {nome: "Pack c/ 6", preco: 45.00}},
+  {id: 15, cat: "Cervejas", nome: "Spaten Long Neck 330ml", preco: 7.50, pack: {nome: "Pack c/ 6", preco: 45.00}},
+  {id: 16, cat: "Cervejas", nome: "Stella Pure Gold 330ml", preco: 8.00, pack: {nome: "Pack c/ 6", preco: 48.00}},
+  {id: 17, cat: "Cervejas", nome: "Stella Puro Malte 330ml", preco: 8.00, pack: {nome: "Pack c/ 6", preco: 48.00}},
+  {id: 18, cat: "Cervejas", nome: "Heineken Long Neck 330ml", preco: 8.00, pack: {nome: "Pack c/ 6", preco: 48.00}, destaque: true},
+  {id: 19, cat: "Cervejas", nome: "Império Lager Long Neck 330ml", preco: 6.50},
+  {id: 20, cat: "Cervejas", nome: "Império Gold Long Neck 330ml", preco: 6.00},
+  {id: 21, cat: "Cervejas", nome: "Império Ultra Long Neck 330ml", preco: 7.00},
+  {id: 22, cat: "Cervejas", nome: "Brahma Cracudinha 300ml", preco: 3.50},
+  {id: 23, cat: "Cervejas", nome: "Antarctica Cracudinha 300ml", preco: 3.50},
+  {id: 24, cat: "Cervejas", nome: "Original Cracudinha 300ml", preco: 3.50},
+  {id: 25, cat: "Cervejas", nome: "Brahma Zero Álcool Lata", preco: 5.00},
+  {id: 26, cat: "Cervejas", nome: "Heineken Zero Long Neck 330ml", preco: 8.00},
+  {id: 27, cat: "Destilados", nome: "Vodka Absolut 750ml", preco: 85.00, destaque: true},
+  {id: 28, cat: "Destilados", nome: "Vodka Smirnoff 900ml", preco: 40.00, destaque: true},
+  {id: 29, cat: "Destilados", nome: "Vodka Kovak 1L", preco: 26.00},
+  {id: 30, cat: "Destilados", nome: "Vodka Leonoff 900ml", preco: 20.00},
+  {id: 31, cat: "Destilados", nome: "Gin Okay Dry 900ml", preco: 25.00},
+  {id: 32, cat: "Destilados", nome: "Gin Leonoff Dry 900ml", preco: 30.00},
+  {id: 33, cat: "Destilados", nome: "Gin Leonoff Purple Fresh 900ml", preco: 30.00},
+  {id: 34, cat: "Destilados", nome: "Gin Leonoff Watermelon 900ml", preco: 30.00},
+  {id: 35, cat: "Destilados", nome: "Gin Leonoff Pineberry 900ml", preco: 30.00},
+  {id: 36, cat: "Destilados", nome: "Gin Rocks Tradicional 1L", preco: 35.00, destaque: true},
+  {id: 37, cat: "Destilados", nome: "Gin Rocks Sicilians Lemon 1L", preco: 35.00},
+  {id: 38, cat: "Destilados", nome: "Gin Rocks Strawberry 1L", preco: 35.00},
+  {id: 39, cat: "Destilados", nome: "Gin Rocks Watermelon 1L", preco: 35.00},
+  {id: 40, cat: "Destilados", nome: "Gin Rocks Sunset 1L", preco: 35.00},
+  {id: 41, cat: "Destilados", nome: "Gin QN Tradicional 900ml", preco: 28.00},
+  {id: 42, cat: "Destilados", nome: "Gin QN Melancia 900ml", preco: 28.00},
+  {id: 43, cat: "Destilados", nome: "Gin QN Maçã Verde 900ml", preco: 28.00},
+  {id: 44, cat: "Destilados", nome: "Gin QN Tropical 900ml", preco: 28.00},
+  {id: 45, cat: "Destilados", nome: "Gin QN Strawberry 900ml", preco: 28.00},
+  {id: 46, cat: "Destilados", nome: "Gin Tônica QN Frutas Vermelhas 355ml", preco: 9.00},
+  {id: 47, cat: "Destilados", nome: "Gin Tônica QN Melancia 355ml", preco: 9.00},
+  {id: 48, cat: "Destilados", nome: "Gin Tônica QN Maçã Verde 355ml", preco: 9.00},
+  {id: 49, cat: "Destilados", nome: "Gin Tônica Amora 355ml", preco: 9.00},
+  {id: 50, cat: "Destilados", nome: "Gin Tônica QN Pitaya 355ml", preco: 9.00},
+  {id: 51, cat: "Destilados", nome: "Gin Tônica QN Tangerina 355ml", preco: 9.00},
+  {id: 52, cat: "Destilados", nome: "Gin Tônica QN Pink Lemonade 355ml", preco: 9.00},
+  {id: 53, cat: "Destilados", nome: "Skol Beats Senses Lata", preco: 7.00, destaque: true},
+  {id: 54, cat: "Destilados", nome: "Skol Beats GT Lata", preco: 7.50},
+  {id: 55, cat: "Destilados", nome: "Skol Beats Red Mix Lata", preco: 7.00},
+  {id: 56, cat: "Destilados", nome: "Skol Beats Red Mix Long Neck", preco: 10.00},
+  {id: 57, cat: "Destilados", nome: "Ice Cabaré Frutas Vermelhas", preco: 8.50},
+  {id: 58, cat: "Destilados", nome: "Ice 51 Balada", preco: 7.00},
+  {id: 59, cat: "Destilados", nome: "Ice 51 Limão", preco: 7.00},
+  {id: 60, cat: "Destilados", nome: "Ice Kovak Limão", preco: 6.00},
+  {id: 61, cat: "Destilados", nome: "Ice Smirnoff Lions Limão", preco: 8.00},
+  {id: 62, cat: "Destilados", nome: "Ice Syn Limão Long Neck", preco: 6.00},
+  {id: 63, cat: "Destilados", nome: "Ice Syn Limão Plástico", preco: 4.00},
+  {id: 64, cat: "Destilados", nome: "Ice We Mix Morango e Kiwi", preco: 5.00},
+  {id: 65, cat: "Destilados", nome: "Ice We Mix Pêssego c/ Chá Preto", preco: 5.00},
+  {id: 66, cat: "Destilados", nome: "Ice We Mix Frutas Verdes c/ Chá Verde", preco: 5.00},
+  {id: 67, cat: "Destilados", nome: "Ice We Mix Limão e Gengibre", preco: 5.00},
+  {id: 68, cat: "Destilados", nome: "Ice We Mix Melancia e Hortelã", preco: 5.00},
+  {id: 69, cat: "Destilados", nome: "Pink Moon Rosé 275ml", preco: 6.50},
+  {id: 70, cat: "Destilados", nome: "Pink Moon Rosé 750ml", preco: 20.00},
+  {id: 71, cat: "Destilados", nome: "Pink Moon Pêssego 275ml", preco: 6.50},
+  {id: 72, cat: "Destilados", nome: "Pink Moon Uva 275ml", preco: 6.50},
+  {id: 73, cat: "Destilados", nome: "Pink Moon Uva 600ml", preco: 10.00},
+  {id: 74, cat: "Destilados", nome: "Stempel Uva 600ml", preco: 16.00},
+  {id: 75, cat: "Destilados", nome: "Stempel Abacaxi 600ml", preco: 16.00},
+  {id: 76, cat: "Destilados", nome: "Stempel Rosé 600ml", preco: 16.00},
+  {id: 77, cat: "Destilados", nome: "Whisky Ballantines 1L", preco: 85.00},
+  {id: 78, cat: "Destilados", nome: "Whisky Ballantines 750ml", preco: 75.00},
+  {id: 79, cat: "Destilados", nome: "Whisky Cavalo Branco 1L", preco: 75.00, destaque: true},
+  {id: 80, cat: "Destilados", nome: "Whisky Cavalo Branco 500ml", preco: 45.00},
+  {id: 81, cat: "Destilados", nome: "Whisky Red Label 1L", preco: 95.00, destaque: true},
+  {id: 82, cat: "Destilados", nome: "Whisky Red Label 750ml", preco: 85.00},
+  {id: 83, cat: "Destilados", nome: "Whisky Jack Daniels Maçã Verde 1L", preco: 180.00},
+  {id: 84, cat: "Destilados", nome: "Whisky Jack Daniels Tradicional 1L", preco: 160.00, destaque: true},
+  {id: 85, cat: "Destilados", nome: "Whisky Jack Daniels Fire 1L", preco: 160.00},
+  {id: 86, cat: "Destilados", nome: "Whisky Buchanan's 12 Anos 1L", preco: 220.00},
+  {id: 87, cat: "Destilados", nome: "Whisky Buchanan's 12 Anos 750ml", preco: 180.00},
+  {id: 88, cat: "Destilados", nome: "Whisky Old Parr 1L", preco: 160.00},
+  {id: 89, cat: "Destilados", nome: "Whisky Woodford Reserve 750ml", preco: 180.00},
+  {id: 90, cat: "Destilados", nome: "Licor 43 Edição Especial", preco: 220.00},
+  {id: 91, cat: "Destilados", nome: "Licor Baileys 50ml", preco: 10.00},
+  {id: 92, cat: "Destilados", nome: "Licor Bananinha Reggiane", preco: 22.00},
+  {id: 93, cat: "Destilados", nome: "Licor Amarula 750ml", preco: 165.00},
+  {id: 94, cat: "Destilados", nome: "Cachaça da Roça Menta", preco: 20.00},
+  {id: 95, cat: "Destilados", nome: "Cachaça da Roça Paçoquita", preco: 20.00},
+  {id: 96, cat: "Destilados", nome: "Cachaça Praianinha 970ml", preco: 16.00},
+  {id: 97, cat: "Destilados", nome: "Pytu Amarelinha", preco: 25.00},
+  {id: 98, cat: "Destilados", nome: "Pytu Limão", preco: 25.00},
+  {id: 99, cat: "Destilados", nome: "Cachaça 51 1L", preco: 15.00},
+  {id: 100, cat: "Destilados", nome: "Cachaça Velho Barreiro 1L", preco: 18.00},
+  {id: 101, cat: "Destilados", nome: "Barrigudinha", preco: 7.00},
+  {id: 102, cat: "Destilados", nome: "Caninha da Roça", preco: 6.00},
+  {id: 103, cat: "Destilados", nome: "Vinho Pérgola Suave 1L", preco: 25.00},
+  {id: 104, cat: "Destilados", nome: "Vinho Galiotto Suave 1L", preco: 25.00},
+  {id: 105, cat: "Destilados", nome: "Vinho Casa Rodrigues Suave 1L", preco: 25.00},
+  {id: 106, cat: "Destilados", nome: "Vinho Casa Rodrigues Seco 1L", preco: 25.00},
+  {id: 107, cat: "Destilados", nome: "Vinho Colorado Suave 1L", preco: 30.00},
+  {id: 108, cat: "Destilados", nome: "Vinho Colorado Seco 1L", preco: 30.00},
+  {id: 109, cat: "Destilados", nome: "Combo QN Sunshine Whisky Trad.", preco: 16.50},
+  {id: 110, cat: "Destilados", nome: "Combo QN Sunshine Whisky c/ Coco", preco: 16.50},
+  {id: 111, cat: "Destilados", nome: "Combo QN Sunshine Vodka c/ Manga", preco: 16.50},
+  {id: 112, cat: "Destilados", nome: "Combo QN Sunshine Gin c/ Melancia", preco: 16.50},
+  {id: 113, cat: "Energéticos", nome: "QN Melancia 2L", preco: 10.00, pack: {nome: "Pack c/ 4", preco: 40.00}},
+  {id: 114, cat: "Energéticos", nome: "QN Maçã Verde 2L", preco: 10.00, pack: {nome: "Pack c/ 4", preco: 40.00}},
+  {id: 115, cat: "Energéticos", nome: "Red Hot 2L Tradicional", preco: 10.00},
+  {id: 116, cat: "Energéticos", nome: "Minotauro 2L", preco: 10.00},
+  {id: 117, cat: "Energéticos", nome: "Baly Tradicional 2L", preco: 13.00, destaque: true},
+  {id: 118, cat: "Energéticos", nome: "Baly Maçã Verde 2L", preco: 13.00},
+  {id: 119, cat: "Energéticos", nome: "Baly Melancia 2L", preco: 13.00},
+  {id: 120, cat: "Energéticos", nome: "Baly Tadala 2L", preco: 13.00},
+  {id: 121, cat: "Energéticos", nome: "Baly Tropical 2L", preco: 13.00},
+  {id: 122, cat: "Energéticos", nome: "One 2L", preco: 7.00},
+  {id: 123, cat: "Energéticos", nome: "Red Bull Tradicional", preco: 10.00, pack: {nome: "Pack c/ 4", preco: 40.00}, destaque: true},
+  {id: 124, cat: "Energéticos", nome: "Red Bull Tropical", preco: 10.00},
+  {id: 125, cat: "Energéticos", nome: "Monster Tradicional", preco: 12.00, destaque: true},
+  {id: 126, cat: "Energéticos", nome: "Monster Manga", preco: 12.00},
+  {id: 127, cat: "Refrigerantes", nome: "Sukita Uva 2L", preco: 8.00},
+  {id: 128, cat: "Refrigerantes", nome: "Sukita Laranja 2L", preco: 8.00},
+  {id: 129, cat: "Refrigerantes", nome: "Coca-Cola 2L", preco: 12.00, destaque: true},
+  {id: 130, cat: "Refrigerantes", nome: "Coca-Cola Retornável 2L", preco: 8.00},
+  {id: 131, cat: "Refrigerantes", nome: "Limoneto H2OH 1,5L", preco: 9.00},
+  {id: 132, cat: "Refrigerantes", nome: "Mineirinho 2L", preco: 10.00},
+  {id: 133, cat: "Refrigerantes", nome: "Guaraná Antarctica 2L", preco: 12.00, destaque: true},
+  {id: 134, cat: "Refrigerantes", nome: "Grapete 2L", preco: 9.50},
+  {id: 135, cat: "Refrigerantes", nome: "Flexa Cola 2L", preco: 7.00},
+  {id: 136, cat: "Refrigerantes", nome: "Flexa Laranja 2L", preco: 7.00},
+  {id: 137, cat: "Refrigerantes", nome: "Flexa Uva 2L", preco: 7.00},
+  {id: 138, cat: "Refrigerantes", nome: "Flexa Guaraná 2L", preco: 7.00},
+  {id: 139, cat: "Refrigerantes", nome: "Coca-Cola Lata 350ml", preco: 5.50},
+  {id: 140, cat: "Refrigerantes", nome: "Guaraná Antarctica Lata 350ml", preco: 5.50},
+  {id: 141, cat: "Refrigerantes", nome: "Gatorade Laranja 500ml", preco: 7.00},
+  {id: 142, cat: "Refrigerantes", nome: "Gatorade Blueberry 500ml", preco: 7.00},
+  {id: 143, cat: "Refrigerantes", nome: "Gatorade Uva 500ml", preco: 7.00},
+  {id: 144, cat: "Refrigerantes", nome: "Gatorade Morango 500ml", preco: 7.00},
+  {id: 145, cat: "Refrigerantes", nome: "Água Saborizada Maçã Verde", preco: 4.00},
+  {id: 146, cat: "Refrigerantes", nome: "Água Saborizada Tangerina", preco: 4.00},
+  {id: 147, cat: "Refrigerantes", nome: "Água Saborizada Limão", preco: 4.00},
+  {id: 148, cat: "Refrigerantes", nome: "Água Mineral S/ Gás 510ml", preco: 3.00},
+  {id: 149, cat: "Refrigerantes", nome: "Água Mineral C/ Gás 510ml", preco: 3.50},
+  {id: 150, cat: "Refrigerantes", nome: "Água Mineral S/ Gás 1,5L", preco: 5.00},
+  {id: 151, cat: "Refrigerantes", nome: "Água Mineral C/ Gás 1,5L", preco: 7.00},
+  {id: 152, cat: "Refrigerantes", nome: "Pirakids", preco: 2.50},
+  {id: 153, cat: "Refrigerantes", nome: "Toddynho", preco: 3.50},
+  {id: 154, cat: "Refrigerantes", nome: "Limoneto H2OH 500ml", preco: 5.50},
+  {id: 155, cat: "Refrigerantes", nome: "Guaravita 290ml", preco: 2.50},
+  {id: 156, cat: "Refrigerantes", nome: "Guaraplus 290ml", preco: 2.50},
+  {id: 157, cat: "Água", nome: "Galão Cascataí 20L", preco: 13.00},
+  {id: 158, cat: "Água", nome: "Galão Serra 20L", preco: 10.00},
+  {id: 159, cat: "Gelo/Carvão", nome: "Gelo Filtrado 5kg", preco: 15.00, destaque: true},
+  {id: 160, cat: "Gelo/Carvão", nome: "Gelo Escama 20kg", preco: 30.00},
+  {id: 161, cat: "Gelo/Carvão", nome: "Gelo de Coco Verde", preco: 4.00, destaque: true},
+  {id: 162, cat: "Gelo/Carvão", nome: "Gelo de Coco Maçã Verde", preco: 4.00},
+  {id: 163, cat: "Gelo/Carvão", nome: "Gelo de Coco Melancia", preco: 4.00},
+  {id: 164, cat: "Gelo/Carvão", nome: "Gelo de Coco Maracujá", preco: 4.00},
+  {id: 165, cat: "Gelo/Carvão", nome: "Gelo de Coco Morango", preco: 4.00},
+  {id: 166, cat: "Gelo/Carvão", nome: "Carvão Frigogil 2kg", preco: 12.00, destaque: true},
+  {id: 167, cat: "Gelo/Carvão", nome: "Carvão Oliveira 2kg", preco: 15.00},
+  {id: 168, cat: "Gelo/Carvão", nome: "Carvão Araruama 2,4kg", preco: 17.00},
+  {id: 169, cat: "Gelo/Carvão", nome: "Carvão Araruama 5,5kg", preco: 35.00},
+  {id: 170, cat: "Churrasco", nome: "Sal Grosso", preco: 5.00},
+  {id: 171, cat: "Churrasco", nome: "Sal Parrilla Argentino 1kg", preco: 12.00},
+  {id: 172, cat: "Churrasco", nome: "Sal Parrilla Chimichurri 1kg", preco: 12.00},
+  {id: 173, cat: "Churrasco", nome: "Sal Parrilla Lemon Pepper 250g", preco: 7.00},
+  {id: 174, cat: "Churrasco", nome: "Sal Parrilla Argentino 250g", preco: 7.00},
+  {id: 175, cat: "Churrasco", nome: "Sal Parrilla Chimichurri 250g", preco: 7.00},
+  {id: 176, cat: "Churrasco", nome: "Sal Parrilla Defumado 250g", preco: 7.00},
+  {id: 177, cat: "Churrasco", nome: "Pasta Pão de Alho Bacon 500g", preco: 15.00},
+  {id: 178, cat: "Churrasco", nome: "Pasta Pão de Alho Queijo 500g", preco: 15.00},
+  {id: 179, cat: "Churrasco", nome: "Pasta Pão de Alho Trad. 500g", preco: 15.00, destaque: true},
+  {id: 180, cat: "Churrasco", nome: "Molho Churrasco e Grelhado", preco: 8.00},
+  {id: 181, cat: "Churrasco", nome: "Molho Alho", preco: 8.00},
+  {id: 182, cat: "Churrasco", nome: "Molho Pimenta Vulcão", preco: 8.00},
+  {id: 183, cat: "Churrasco", nome: "Molho Pimenta Biquinho", preco: 8.00},
+  {id: 184, cat: "Churrasco", nome: "Farofa Picanha", preco: 8.00},
+  {id: 185, cat: "Churrasco", nome: "Farofa Tradicional", preco: 8.00},
+  {id: 186, cat: "Churrasco", nome: "Farofa Costelinha", preco: 8.00},
+  {id: 187, cat: "Churrasco", nome: "Tempero Completo Churrasco", preco: 8.00},
 ];
 
-const catsUnicas = [...new Set(produtos.map(p => p.cat))];
+const CATS_EXCLUIDAS = ["Doces", "Petiscos", "Tabacaria"];
+
+const catsUnicas = [...new Set(produtos.map(p => p.cat))].filter(c => !CATS_EXCLUIDAS.includes(c));
 const cats = ["Destaques", ...catsUnicas];
 
 let catAtiva = "Destaques";
@@ -73,67 +199,206 @@ let carrinho = {};
 let pagamento = "";
 let coords = null;
 
+// ============================================================
+// AUTOCOMPLETE COM MODO CLARO CORRIGIDO
+// ============================================================
+function normalizarTexto(txt) {
+  return txt.toLowerCase()
+    .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9 ]/g, "");
+}
+
+function iniciarAutocomplete() {
+  const input = document.getElementById("searchBar");
+  const wrapper = input.parentElement;
+
+  const dropdown = document.createElement("ul");
+  dropdown.id = "autocomplete-list";
+  // O CSS INLINE ESTÁ AGORA USANDO AS VARIÁVEIS NATIVAS DO MODO CLARO DO SEU PROJETO
+  dropdown.style.cssText = `
+    position:absolute; top:100%; left:0; right:0; z-index:999;
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-secondary);
+    border-top: none; border-radius: 0 0 10px 10px;
+    margin: 0; padding: 0; list-style: none;
+    max-height: 260px; overflow-y: auto;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    display: none;
+  `;
+  wrapper.style.position = "relative";
+  wrapper.appendChild(dropdown);
+
+  let itemFocado = -1;
+
+  input.addEventListener("input", () => {
+    const termo = normalizarTexto(input.value);
+    itemFocado = -1;
+
+    if (termo.length < 2) {
+      dropdown.style.display = "none";
+      dropdown.innerHTML = "";
+      renderProdutos();
+      return;
+    }
+
+    const produtosFiltrados = produtos.filter(p => !CATS_EXCLUIDAS.includes(p.cat));
+
+    const sugestoes = produtosFiltrados
+      .map(p => {
+        const nome = normalizarTexto(p.nome);
+        const cat  = normalizarTexto(p.cat);
+        let score = 0;
+        if (nome.startsWith(termo)) score = 3;
+        else if (nome.includes(termo)) score = 2;
+        else if (cat.includes(termo)) score = 1;
+        return { p, score };
+      })
+      .filter(x => x.score > 0)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 8)
+      .map(x => x.p);
+
+    if (!sugestoes.length) {
+      dropdown.style.display = "none";
+      dropdown.innerHTML = "";
+      renderProdutos();
+      return;
+    }
+
+    // CORES CORRIGIDAS NA RENDERIZAÇÃO DA LISTA
+    dropdown.innerHTML = sugestoes.map((p, i) => {
+      const nomeDest = destacarTermo(p.nome, input.value);
+      return `<li data-index="${i}" data-nome="${p.nome}"
+        style="padding:10px 14px; cursor:pointer; display:flex; align-items:center; gap:10px;
+               border-bottom: 1px solid var(--color-background-tertiary); font-size:14px;
+               color: var(--color-text-primary);">
+        <span style="font-size:18px">${iconeCategoria(p.cat)}</span>
+        <span>${nomeDest}</span>
+        <span style="margin-left:auto; font-size:12px; opacity:0.5">${p.cat}</span>
+      </li>`;
+    }).join("");
+
+    dropdown.style.display = "block";
+
+    dropdown.querySelectorAll("li").forEach(li => {
+      li.addEventListener("mouseenter", () => {
+        dropdown.querySelectorAll("li").forEach(x => x.style.background = "");
+        li.style.background = "var(--color-background-secondary)"; // HIGHLIGHT CORRIGIDO
+      });
+      li.addEventListener("mouseleave", () => { li.style.background = ""; });
+      li.addEventListener("mousedown", (e) => {
+        e.preventDefault();
+        selecionarSugestao(li.dataset.nome);
+      });
+    });
+
+    renderProdutos();
+  });
+
+  input.addEventListener("keydown", (e) => {
+    const itens = dropdown.querySelectorAll("li");
+    if (!itens.length) return;
+    if (e.key === "ArrowDown") { e.preventDefault(); itemFocado = Math.min(itemFocado + 1, itens.length - 1); atualizarFoco(itens); }
+    else if (e.key === "ArrowUp") { e.preventDefault(); itemFocado = Math.max(itemFocado - 1, 0); atualizarFoco(itens); }
+    else if (e.key === "Enter" && itemFocado >= 0) { e.preventDefault(); selecionarSugestao(itens[itemFocado].dataset.nome); }
+    else if (e.key === "Escape") { fecharAutocomplete(); }
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!wrapper.contains(e.target)) fecharAutocomplete();
+  });
+
+  function atualizarFoco(itens) {
+    itens.forEach((li, i) => { li.style.background = i === itemFocado ? "var(--color-background-secondary)" : ""; });
+  }
+
+  function fecharAutocomplete() {
+    dropdown.style.display = "none";
+    dropdown.innerHTML = "";
+    itemFocado = -1;
+  }
+
+  function selecionarSugestao(nome) {
+    input.value = nome;
+    fecharAutocomplete();
+    renderProdutos();
+  }
+}
+
+function destacarTermo(nome, termo) {
+  if (!termo) return nome;
+  const regex = new RegExp(`(${termo.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, "gi");
+  return nome.replace(regex, '<strong style="color:var(--brand-blue)">$1</strong>');
+}
+
+function iconeCategoria(cat) {
+  const mapa = {
+    "Cervejas": "🍺", "Destilados": "🥃", "Energéticos": "⚡",
+    "Refrigerantes": "🥤", "Água": "💧", "Gelo/Carvão": "🧊",
+    "Churrasco": "🔥",
+  };
+  return mapa[cat] || "📦";
+}
+// ============================================================
+
 function renderCats(){
   const el = document.getElementById("cats");
   el.innerHTML = cats.map(c => `<button class="cat-btn${c===catAtiva?' active':''}" onclick="setcat('${c}')">${c}</button>`).join('');
 }
 
 function setcat(c){
-    catAtiva=c;
-    document.getElementById("searchBar").value = ""; 
-    renderCats();
-    renderProdutos();
+  catAtiva = c;
+  document.getElementById("searchBar").value = "";
+  const dropdown = document.getElementById("autocomplete-list");
+  if (dropdown) { dropdown.style.display = "none"; dropdown.innerHTML = ""; }
+  renderCats();
+  renderProdutos();
 }
 
 function mudarVariante(prodId, variante) {
-    const p = produtos.find(x => x.id === prodId);
-    const priceDiv = document.getElementById(`price-${prodId}`);
-    
-    if (variante === 'unidade') {
-        priceDiv.textContent = `R$ ${p.preco.toFixed(2).replace('.',',')}`;
-    } else {
-        priceDiv.textContent = `R$ ${p.pack.preco.toFixed(2).replace('.',',')}`;
-    }
-    
-    // Zera a quantidade no display se o cara trocar a variante, pra evitar erros no carrinho
-    const span = document.getElementById(`qtd-${prodId}`);
-    span.textContent = "0";
-    span.className = 'qty';
+  const p = produtos.find(x => x.id === prodId);
+  const priceDiv = document.getElementById(`price-${prodId}`);
+  if (variante === 'unidade') {
+    priceDiv.textContent = `R$ ${p.preco.toFixed(2).replace('.',',')}`;
+  } else {
+    priceDiv.textContent = `R$ ${p.pack.preco.toFixed(2).replace('.',',')}`;
+  }
+  const span = document.getElementById(`qtd-${prodId}`);
+  span.textContent = "0";
+  span.className = 'qty';
 }
 
 function renderProdutos(){
   const termo = document.getElementById("searchBar").value.toLowerCase();
   const container = document.getElementById("product-list");
-  
+
+  const produtosVisiveis = produtos.filter(p => !CATS_EXCLUIDAS.includes(p.cat));
   let catsFiltradas = termo !== "" ? catsUnicas : (catAtiva === "Destaques" ? ["Destaques"] : [catAtiva]);
   let html = "";
-  
-  catsFiltradas.forEach(cat => {
-    let lista = termo !== "" ? 
-        produtos.filter(p => p.cat === cat && p.nome.toLowerCase().includes(termo)) :
-        (cat === "Destaques" ? produtos.filter(p => p.destaque === true) : produtos.filter(p => p.cat === cat));
 
-    if(!lista.length) return;
-    
+  catsFiltradas.forEach(cat => {
+    let lista = termo !== "" ?
+      produtosVisiveis.filter(p => p.cat === cat && normalizarTexto(p.nome).includes(normalizarTexto(termo))) :
+      (cat === "Destaques" ? produtosVisiveis.filter(p => p.destaque === true) : produtosVisiveis.filter(p => p.cat === cat));
+
+    if (!lista.length) return;
+
     const tituloSessao = (catAtiva === "Destaques" && termo === "") ? "Mais Vendidos" : cat;
     if (html.indexOf(`>${tituloSessao}</div>`) === -1) {
-        html += `<div class="section-title">${tituloSessao}</div><div class="grid">`;
+      html += `<div class="section-title">${tituloSessao}</div><div class="grid">`;
     }
 
     lista.forEach(p => {
-      // Cria a lógica da foto para buscar na pasta static/assets/
       const imgPath = `static/assets/${p.id}.jpg`;
-      
-      // Constrói o HTML do menu de Pack se o produto tiver a opção
       let packSelectHTML = "";
       if (p.pack) {
-          packSelectHTML = `
-          <div class="pack-selector">
-              <select id="sel-${p.id}" onchange="mudarVariante(${p.id}, this.value)">
-                  <option value="unidade">Unidade (R$ ${p.preco.toFixed(2).replace('.',',')})</option>
-                  <option value="pack">${p.pack.nome} (R$ ${p.pack.preco.toFixed(2).replace('.',',')})</option>
-              </select>
-          </div>`;
+        packSelectHTML = `
+        <div class="pack-selector">
+          <select id="sel-${p.id}" onchange="mudarVariante(${p.id}, this.value)">
+            <option value="unidade">Unidade (R$ ${p.preco.toFixed(2).replace('.',',')})</option>
+            <option value="pack">${p.pack.nome} (R$ ${p.pack.preco.toFixed(2).replace('.',',')})</option>
+          </select>
+        </div>`;
       }
 
       html += `<div class="card">
@@ -152,18 +417,14 @@ function renderProdutos(){
     });
     html += `</div>`;
   });
-  
-  if(!html) html = `<div class="empty"><i class="ti ti-search-off" style="font-size:32px;display:block;margin-bottom:12px"></i>Nenhum produto encontrado</div>`;
+
+  if (!html) html = `<div class="empty"><i class="ti ti-search-off" style="font-size:32px;display:block;margin-bottom:12px"></i>Nenhum produto encontrado</div>`;
   container.innerHTML = html;
-  
-  // Como o HTML foi re-renderizado, precisamos sincronizar os números do carrinho
+
   for (let key in carrinho) {
-      const baseId = key.split('_')[0];
-      const span = document.getElementById(`qtd-${baseId}`);
-      if (span) {
-          span.textContent = carrinho[key].quantidade;
-          span.className = 'qty has-qty';
-      }
+    const baseId = key.split('_')[0];
+    const span = document.getElementById(`qtd-${baseId}`);
+    if (span) { span.textContent = carrinho[key].quantidade; span.className = 'qty has-qty'; }
   }
 }
 
@@ -172,101 +433,165 @@ function filtrar(){ renderProdutos(); }
 function alt(idBase, delta){
   const p = produtos.find(x => x.id === idBase);
   const selector = document.getElementById(`sel-${idBase}`);
-  
-  // Define qual variante está sendo comprada
   const isPack = selector && selector.value === 'pack';
-  
-  // Cria um ID único no carrinho para separar unidade de pack
   const cartId = isPack ? `${idBase}_pack` : `${idBase}_un`;
   const nomeFinal = isPack ? `${p.nome} (${p.pack.nome})` : p.nome;
   const precoFinal = isPack ? p.pack.preco : p.preco;
 
-  if(!carrinho[cartId]) carrinho[cartId] = {nome: nomeFinal, preco: precoFinal, quantidade: 0, baseId: idBase};
-  
+  if (!carrinho[cartId]) carrinho[cartId] = {nome: nomeFinal, preco: precoFinal, quantidade: 0, baseId: idBase};
   carrinho[cartId].quantidade += delta;
-  
-  if(carrinho[cartId].quantidade <= 0) delete carrinho[cartId];
-  
-  // Atualiza o display no card
+  if (carrinho[cartId].quantidade <= 0) delete carrinho[cartId];
+
   const span = document.getElementById(`qtd-${idBase}`);
-  if(span){
+  if (span) {
     let totalNaTela = 0;
     if (carrinho[`${idBase}_un`]) totalNaTela += carrinho[`${idBase}_un`].quantidade;
     if (carrinho[`${idBase}_pack`]) totalNaTela += carrinho[`${idBase}_pack`].quantidade;
-    
     span.textContent = totalNaTela;
     span.className = 'qty' + (totalNaTela > 0 ? ' has-qty' : '');
   }
-  
   atualizarCarrinho();
 }
 
 function atualizarCarrinho(){
   let total=0, itens=0;
-  for(let id in carrinho){total+=carrinho[id].quantidade*carrinho[id].preco;itens+=carrinho[id].quantidade;}
+  for (let id in carrinho){ total += carrinho[id].quantidade * carrinho[id].preco; itens += carrinho[id].quantidade; }
   const bar = document.getElementById("cart-bar");
-  if(total>0){
+  if (total > 0) {
     bar.classList.remove("hidden");
-    document.getElementById("cart-total").textContent=`Total: R$ ${total.toFixed(2).replace('.',',')}`;
-    document.getElementById("cart-items-count").textContent=`${itens} ${itens===1?'item':'itens'}`;
+    document.getElementById("cart-total").textContent = `Total: R$ ${total.toFixed(2).replace('.',',')}`;
+    document.getElementById("cart-items-count").textContent = `${itens} ${itens===1?'item':'itens'}`;
   } else {
     bar.classList.add("hidden");
   }
 }
 
 function abrirModal(){
-  let resumo="";
-  let total=0;
-  for(let id in carrinho){
-    const it=carrinho[id];
-    const sub=it.quantidade*it.preco;
-    total+=sub;
-    resumo+=`<div style="display:flex;justify-content:space-between;padding:4px 0">${it.quantidade}× ${it.nome}<span>R$ ${sub.toFixed(2).replace('.',',')}</span></div>`;
+  let resumo="", total=0;
+  for (let id in carrinho){
+    const it = carrinho[id];
+    const sub = it.quantidade * it.preco;
+    total += sub;
+    resumo += `<div style="display:flex;justify-content:space-between;padding:4px 0">${it.quantidade}× ${it.nome}<span>R$ ${sub.toFixed(2).replace('.',',')}</span></div>`;
   }
-  resumo+=`<div style="display:flex;justify-content:space-between;padding:10px 0 0;border-top:1px solid var(--color-border-secondary);margin-top:8px;font-weight:700;">Total<span>R$ ${total.toFixed(2).replace('.',',')}</span></div>`;
-  document.getElementById("resumo-pedido").innerHTML=resumo;
+  resumo += `<div style="display:flex;justify-content:space-between;padding:10px 0 0;border-top:1px solid var(--color-border-secondary);margin-top:8px;font-weight:700;">Total<span>R$ ${total.toFixed(2).replace('.',',')}</span></div>`;
+  document.getElementById("resumo-pedido").innerHTML = resumo;
   document.getElementById("modal-overlay").classList.remove("hidden");
 }
 
-function fecharModal(){document.getElementById("modal-overlay").classList.add("hidden");}
-function fecharModalFora(e){if(e.target===document.getElementById("modal-overlay"))fecharModal();}
+function fecharModal(){ document.getElementById("modal-overlay").classList.add("hidden"); }
+function fecharModalFora(e){ if (e.target === document.getElementById("modal-overlay")) fecharModal(); }
 
-function selPag(el,pag){
-  pagamento=pag;
-  document.querySelectorAll(".pay-opt").forEach(x=>x.classList.remove("sel"));
+function selPag(el, pag){
+  pagamento = pag;
+  document.querySelectorAll(".pay-opt").forEach(x => x.classList.remove("sel"));
   el.classList.add("sel");
 }
 
+// ============================================================
+// GEOLOCALIZAÇÃO OTIMIZADA E COM TRATAMENTO DE ERRO
+// ============================================================
 function pegarLocalizacao(){
   const btn = document.getElementById("loc-btn");
   const status = document.getElementById("loc-status");
-  btn.innerHTML='Obtendo...';
-  if(!navigator.geolocation){ alert("Geolocalização não disponível."); return; }
-  navigator.geolocation.getCurrentPosition(pos=>{
-    coords={lat:pos.coords.latitude,lng:pos.coords.longitude};
-    fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${coords.lat}&lon=${coords.lng}`)
-      .then(r=>r.json())
-      .then(d=>{
-        document.getElementById("endereco").value = d.display_name||`${coords.lat}, ${coords.lng}`;
-        status.style.display="block"; status.textContent="✓ Endereço preenchido";
-      });
-  });
+  const inputEnd = document.getElementById("endereco");
+  
+  btn.innerHTML = '<i class="ti ti-loader"></i> Obtendo...';
+  btn.disabled = true; // Impede spam de cliques
+
+  if (!navigator.geolocation){ 
+    alert("Seu navegador não suporta geolocalização."); 
+    btn.innerHTML = '<i class="ti ti-current-location"></i> Usar minha localização atual';
+    btn.disabled = false;
+    return; 
+  }
+
+  // Opções para forçar o GPS do celular a trabalhar direito e não ficar carregando infinitamente
+  const options = { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 };
+
+  navigator.geolocation.getCurrentPosition(
+    pos => {
+      coords = {lat: pos.coords.latitude, lng: pos.coords.longitude};
+      
+      // Chamada da API com tratamento de erros (Try/Catch interno)
+      fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${coords.lat}&lon=${coords.lng}`)
+        .then(r => {
+          if(!r.ok) throw new Error("Erro na API de mapas");
+          return r.json();
+        })
+        .then(d => {
+          let enderecoFormatado = d.display_name;
+          // Limpeza do endereço para ficar legível para o motoboy
+          if(d.address) {
+            const r = d.address;
+            const rua = r.road || r.pedestrian || "";
+            const bairro = r.suburb || r.neighbourhood || r.city_district || "";
+            const cidade = r.city || r.town || r.village || "";
+            if (rua) {
+                enderecoFormatado = `${rua}, S/N - ${bairro}, ${cidade}`.replace(/^[,\s\-]+|[,\s\-]+$/g, '').replace(/,\s*,/g, ',');
+            }
+          }
+          inputEnd.value = enderecoFormatado || d.display_name || `${coords.lat}, ${coords.lng}`;
+          status.style.display = "block"; 
+          status.style.color = "#1a7a3c";
+          status.textContent = "✓ Endereço preenchido com sucesso!";
+        })
+        .catch(err => {
+          console.error(err);
+          inputEnd.value = `${coords.lat}, ${coords.lng}`;
+          status.style.display = "block"; 
+          status.style.color = "#d9534f";
+          status.textContent = "⚠️ Coordenadas obtidas, mas falha ao buscar o nome da rua. Por favor, digite manualmente ou envie as coordenadas.";
+        })
+        .finally(() => {
+          btn.innerHTML = '<i class="ti ti-current-location"></i> Usar minha localização atual';
+          btn.disabled = false;
+        });
+    },
+    err => {
+      console.error(err);
+      let msg = "Erro desconhecido ao buscar localização.";
+      if (err.code === 1) msg = "Você não deu permissão para acessar o GPS.";
+      else if (err.code === 2) msg = "Sinal de GPS indisponível neste momento.";
+      else if (err.code === 3) msg = "O tempo limite para buscar a localização esgotou.";
+      
+      alert(msg);
+      status.style.display = "block";
+      status.style.color = "#d9534f";
+      status.textContent = "❌ Falha: " + msg;
+      
+      btn.innerHTML = '<i class="ti ti-current-location"></i> Usar minha localização atual';
+      btn.disabled = false;
+    },
+    options
+  );
 }
 
+// ============================================================
+// ENVIO DO WHATSAPP OTIMIZADO
+// ============================================================
 function enviar(){
   const end = document.getElementById("endereco").value.trim();
-  if(!pagamento){alert("Selecione a forma de pagamento.");return;}
-  if(!end){alert("Informe o endereço de entrega.");return;}
-  let txt="Olá, Super Japa! Gostaria de fazer o seguinte pedido:%0A%0A";
-  let total=0;
-  for(let id in carrinho){
-    const it=carrinho[id]; total+=it.quantidade*it.preco;
-    txt+=`*${it.quantidade}x* ${it.nome} - R$ ${(it.quantidade*it.preco).toFixed(2).replace('.',',')}%0A`;
+  if (!pagamento){ alert("Selecione a forma de pagamento."); return; }
+  if (!end){ alert("Informe o endereço de entrega."); return; }
+  
+  // Usando \n limpo ao invés de misturar %0A e texto puro
+  let txt = "Olá, Super Japa! Gostaria de fazer o seguinte pedido:\n\n";
+  let total = 0;
+  
+  for (let id in carrinho){
+    const it = carrinho[id]; 
+    total += it.quantidade * it.preco;
+    txt += `*${it.quantidade}x* ${it.nome} - R$ ${(it.quantidade*it.preco).toFixed(2).replace('.',',')}\n`;
   }
-  txt+=`%0A*Total:* R$ ${total.toFixed(2).replace('.',',')}%0A*Pagamento:* ${pagamento}%0A*Endereço:* ${encodeURIComponent(end)}`;
-  window.open(`https://wa.me/5522988303921?text=${txt}`,'_blank');
+  
+  txt += `\n*Total:* R$ ${total.toFixed(2).replace('.',',')}\n*Pagamento:* ${pagamento}\n*Endereço:* ${end}`;
+  
+  // O encodeURIComponent() garante que os espaços, acentos e quebras de linha não quebrem o link
+  window.open(`https://wa.me/5522988303921?text=${encodeURIComponent(txt)}`, '_blank');
   fecharModal();
 }
 
 renderCats();
 renderProdutos();
+iniciarAutocomplete();
