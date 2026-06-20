@@ -581,7 +581,7 @@ function enviar(){
   
   txt += `\n*Total:* R$ ${total.toFixed(2).replace('.',',')}\n*Pagamento:* ${pagamento}\n*Endereço:* ${end}`;
   
-  window.open(`https://wa.me/5522988303921?text=${encodeURIComponent(txt)}`, '_blank');
+  window.open(`https://wa.me/5522997062756?text=${encodeURIComponent(txt)}`, '_blank');
   fecharModal();
 }
 
