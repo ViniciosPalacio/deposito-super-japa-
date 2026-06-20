@@ -13,7 +13,8 @@
         <h2 class="sr-only">Super Japa Bebidas</h2>
         <div class="header">
             <img src="static/assets/logo.jpeg" alt="Logo Super Japa Bebidas" class="brand-logo" onerror="this.style.display='none'">
-            <h1>🍺 Super Japa Bebidas</h1>
+            <h1 class="sr-only">🍺 Super Japa Bebidas</h1>
+            
             <div class="search-wrap">
                 <i class="ti ti-search" aria-hidden="true"></i>
                 <input type="text" id="searchBar" placeholder="Pesquisar produto..." oninput="filtrar()">
@@ -49,10 +50,10 @@
             
             <label>Endereço de entrega</label>
             <button class="loc-btn" onclick="pegarLocalizacao()" id="loc-btn">
-                <i class="ti ti-current-location"></i> Usar minha localização atual
+                <i class="ti ti-current-location"></i> Usar a minha localização atual
             </button>
             <div id="loc-status" class="loc-status" style="display:none"></div>
-            <input type="text" id="endereco" placeholder="Ou digite o endereço..." style="margin-top:8px">
+            <input type="text" id="endereco" placeholder="Ou digita o endereço..." style="margin-top:8px">
             
             <div class="modal-actions">
                 <button class="btn-cancel" onclick="fecharModal()">Cancelar</button>
