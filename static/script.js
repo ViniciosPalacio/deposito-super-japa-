@@ -190,7 +190,6 @@ const produtos = [
 ];
 
 const CATS_EXCLUIDAS = ["Doces", "Petiscos", "Tabacaria"];
-
 const catsUnicas = [...new Set(produtos.map(p => p.cat))].filter(c => !CATS_EXCLUIDAS.includes(c));
 const cats = ["Destaques", ...catsUnicas];
 
@@ -199,9 +198,6 @@ let carrinho = {};
 let pagamento = "";
 let coords = null;
 
-// ============================================================
-// AUTOCOMPLETE COM MODO CLARO CORRIGIDO
-// ============================================================
 function normalizarTexto(txt) {
   return txt.toLowerCase()
     .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
@@ -337,7 +333,6 @@ function iconeCategoria(cat) {
   };
   return mapa[cat] || "📦";
 }
-// ============================================================
 
 function renderCats(){
   const el = document.getElementById("cats");
@@ -366,14 +361,10 @@ function mudarVariante(prodId, variante) {
   span.className = 'qty';
 }
 
-// ============================================================
-// FUNÇÃO GLOBAL DE FALLBACK SUPORTA TODOS OS TIPOS DE EXTENSÃO
-// ============================================================
 function carregarImagemComFallback(img) {
   const id = img.getAttribute('data-id');
   let extIndex = parseInt(img.getAttribute('data-ext') || '0', 10);
   
-  // Lista exaustiva ordenada para testar todos os tipos de arquivos possíveis
   const extensoes = ['jpeg', 'png', 'webp', 'jfif', 'svg', 'JPG', 'JPEG', 'PNG', 'WEBP'];
   
   if (extIndex < extensoes.length) {
@@ -381,7 +372,6 @@ function carregarImagemComFallback(img) {
     img.setAttribute('data-ext', extIndex + 1);
     img.src = `static/assets/${id}.${proxExt}`;
   } else {
-    // Se estourar todas as opções, renderiza a imagem default de segurança
     img.onerror = null;
     img.src = 'static/assets/default.jpg';
   }
@@ -419,7 +409,6 @@ function renderProdutos(){
         </div>`;
       }
 
-      // O HTML inicia puxando .jpg. Caso falhe, dispara a esteira de validação dinâmica por data-attributes
       html += `<div class="card">
         <div class="card-img-wrap">
           <img src="static/assets/${p.id}.jpg" alt="${p.nome}" class="card-img" data-id="${p.id}" data-ext="0" onerror="carregarImagemComFallback(this)">
@@ -512,6 +501,8 @@ function pegarLocalizacao(){
   const status = document.getElementById("loc-status");
   const inputEnd = document.getElementById("endereco");
   
+  const googleApiKey = 'AIzaSyART5nMhHX05nHhxYNXagzot2UK8rAL8k8'; 
+  
   btn.innerHTML = '<i class="ti ti-loader"></i> Obtendo...';
   btn.disabled = true;
 
@@ -528,33 +519,27 @@ function pegarLocalizacao(){
     pos => {
       coords = {lat: pos.coords.latitude, lng: pos.coords.longitude};
       
-      fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${coords.lat}&lon=${coords.lng}`)
+      fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${coords.lat},${coords.lng}&key=${googleApiKey}&language=pt-BR`)
         .then(r => {
-          if(!r.ok) throw new Error("Erro na API de mapas");
+          if(!r.ok) throw new Error("Erro na rede do Google");
           return r.json();
         })
         .then(d => {
-          let enderecoFormatado = d.display_name;
-          if(d.address) {
-            const r = d.address;
-            const rua = r.road || r.pedestrian || "";
-            const bairro = r.suburb || r.neighbourhood || r.city_district || "";
-            const cidade = r.city || r.town || r.village || "";
-            if (rua) {
-                enderecoFormatado = `${rua}, S/N - ${bairro}, ${cidade}`.replace(/^[,\s\-]+|[,\s\-]+$/g, '').replace(/,\s*,/g, ',');
-            }
+          if(d.status === "OK" && d.results.length > 0) {
+            inputEnd.value = d.results[0].formatted_address;
+            status.style.display = "block"; 
+            status.style.color = "#1a7a3c";
+            status.textContent = "✓ Localização exata pelo Google Maps!";
+          } else {
+            throw new Error("Endereço não localizado com precisão.");
           }
-          inputEnd.value = enderecoFormatado || d.display_name || `${coords.lat}, ${coords.lng}`;
-          status.style.display = "block"; 
-          status.style.color = "#1a7a3c";
-          status.textContent = "✓ Endereço preenchido com sucesso!";
         })
         .catch(err => {
           console.error(err);
           inputEnd.value = `${coords.lat}, ${coords.lng}`;
           status.style.display = "block"; 
           status.style.color = "#d9534f";
-          status.textContent = "⚠️ Coordenadas obtidas, mas falha ao buscar o nome da rua. Por favor, digite manualmente.";
+          status.textContent = "⚠️ Ocorreu um erro ao converter as coordenadas. Por favor, digite o endereço.";
         })
         .finally(() => {
           btn.innerHTML = '<i class="ti ti-current-location"></i> Usar minha localização atual';

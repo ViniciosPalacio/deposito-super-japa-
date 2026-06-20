@@ -10,7 +10,6 @@
 </head>
 <body>
     <div class="app-container">
-        <h2 class="sr-only">Super Japa Bebidas</h2>
         <div class="header">
             <img src="static/assets/logo.jpeg" alt="Logo Super Japa Bebidas" class="brand-logo" onerror="this.style.display='none'">
             <h1 class="sr-only">🍺 Super Japa Bebidas</h1>
@@ -23,6 +22,21 @@
 
         <div class="cats" id="cats"></div>
         <div id="product-list"></div>
+
+        <div class="store-location">
+            <h3 class="section-title" style="text-align: center; padding-top: 0;">📍 Onde Estamos</h3>
+            <div class="map-container">
+                <iframe
+                  width="100%"
+                  height="250"
+                  style="border:0;"
+                  loading="lazy"
+                  allowfullscreen
+                  referrerpolicy="no-referrer-when-downgrade"
+                  src="https://maps.google.com/maps?q=Rodovia+Amaral+Peixoto,+01+-+Bananeiras,+Araruama+-+RJ&t=&z=15&ie=UTF8&iwloc=&output=embed">
+                </iframe>
+            </div>
+        </div>
 
         <div id="cart-bar" class="cart-bar hidden">
             <div class="cart-info">
@@ -50,10 +64,10 @@
             
             <label>Endereço de entrega</label>
             <button class="loc-btn" onclick="pegarLocalizacao()" id="loc-btn">
-                <i class="ti ti-current-location"></i> Usar a minha localização atual
+                <i class="ti ti-current-location"></i> Usar minha localização atual
             </button>
             <div id="loc-status" class="loc-status" style="display:none"></div>
-            <input type="text" id="endereco" placeholder="Ou digita o endereço..." style="margin-top:8px">
+            <input type="text" id="endereco" placeholder="Ou digite o endereço..." style="margin-top:8px">
             
             <div class="modal-actions">
                 <button class="btn-cancel" onclick="fecharModal()">Cancelar</button>
