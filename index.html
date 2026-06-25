@@ -11,6 +11,11 @@
 <body>
     <div class="app-container">
         <div class="header">
+            <!-- Botão do Menu Sanduíche -->
+            <button class="menu-toggle" onclick="abrirMenuSanduiche()" aria-label="Menu">
+                <i class="ti ti-menu-2"></i>
+            </button>
+            
             <img src="static/assets/logo.jpeg" alt="Logo Super Japa Bebidas" class="brand-logo" onerror="this.style.display='none'">
             <h1 class="sr-only">🍺 Super Japa Bebidas</h1>
             
@@ -49,6 +54,44 @@
         </div>
     </div>
 
+    <!-- Menu Lateral (Sidebar) -->
+    <div id="sidebar-overlay" class="sidebar-overlay hidden" onclick="fecharMenuSanduiche(event)">
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2>Menu Japa</h2>
+                <button class="close-sidebar" onclick="fecharMenuSanduiche()"><i class="ti ti-x"></i></button>
+            </div>
+            
+            <div class="sidebar-content">
+                <a href="https://wa.me/5522997062756" target="_blank" class="sidebar-item btn-zap">
+                    <i class="ti ti-brand-whatsapp"></i> Falar com Atendente
+                </a>
+                
+                <div class="sidebar-item" onclick="irParaMapa()">
+                    <i class="ti ti-map-pin"></i> Nossa Localização
+                </div>
+
+                <div class="sidebar-info-box">
+                    <i class="ti ti-clock"></i>
+                    <div>
+                        <strong>Horário de Funcionamento</strong>
+                        Terça a Domingo: 10:00 às 22:00<br>
+                        Segunda: Fechado
+                    </div>
+                </div>
+
+                <div class="sidebar-info-box">
+                    <i class="ti ti-motorcycle"></i>
+                    <div>
+                        <strong>Sobre a Entrega</strong>
+                        Taxa calculada via WhatsApp de acordo com o seu bairro. Entregamos em toda a região.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Finalizar Pedido -->
     <div id="modal-overlay" class="modal-overlay hidden" onclick="fecharModalFora(event)">
         <div class="modal" id="modal">
             <h2>Finalizar pedido</h2>

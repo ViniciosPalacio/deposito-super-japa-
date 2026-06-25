@@ -1,3 +1,4 @@
+// BANCO DE DADOS COMPLETO - SINCRONIZADO E PREPARADO PARA TRAVAS DE ESTOQUE
 const produtos = [
   {id: 1, cat: "Cervejas", nome: "Brahma Latão 473ml", preco: 5.50, pack: {nome: "Caixa c/ 12", preco: 66.00}, destaque: true},
   {id: 2, cat: "Cervejas", nome: "Antarctica Latão 473ml", preco: 5.50, pack: {nome: "Caixa c/ 12", preco: 66.00}},
@@ -203,6 +204,26 @@ function normalizarTexto(txt) {
     .replace(/[^a-z0-9 ]/g, "");
 }
 
+// --- CONTROLE DO MENU LATERAL (SIDEBAR) ---
+function abrirMenuSanduiche() {
+  document.getElementById("sidebar-overlay").classList.remove("hidden");
+}
+
+function fecharMenuSanduiche(e) {
+  if (!e || e.target === document.getElementById("sidebar-overlay")) {
+    document.getElementById("sidebar-overlay").classList.add("hidden");
+  }
+}
+
+function irParaMapa() {
+  fecharMenuSanduiche();
+  const mapa = document.querySelector('.store-location');
+  if (mapa) {
+    mapa.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
+// --- AUTOCOMPLETE DA PESQUISA COM TRAVA DE ESTOQUE ---
 function iniciarAutocomplete() {
   const input = document.getElementById("searchBar");
   const wrapper = input.parentElement;
@@ -235,7 +256,8 @@ function iniciarAutocomplete() {
       return;
     }
 
-    const produtosFiltrados = produtos.filter(p => !CATS_EXCLUIDAS.includes(p.cat));
+    // Filtro de visibilidade (exclui itens com emEstoque: false)
+    const produtosFiltrados = produtos.filter(p => !CATS_EXCLUIDAS.includes(p.cat) && p.emEstoque !== false);
 
     const sugestoes = produtosFiltrados
       .map(p => {
@@ -295,10 +317,6 @@ function iniciarAutocomplete() {
     else if (e.key === "ArrowUp") { e.preventDefault(); itemFocado = Math.max(itemFocado - 1, 0); atualizarFoco(itens); }
     else if (e.key === "Enter" && itemFocado >= 0) { e.preventDefault(); selecionarSugestao(itens[itemFocado].dataset.nome); }
     else if (e.key === "Escape") { fecharAutocomplete(); }
-  });
-
-  document.addEventListener("click", (e) => {
-    if (!wrapper.contains(e.target)) fecharAutocomplete();
   });
 
   function atualizarFoco(itens) {
@@ -376,11 +394,14 @@ function carregarImagemComFallback(img) {
   }
 }
 
+// --- MOTOR DE RENDERIZAÇÃO COM TRAVA DE ESTOQUE ---
 function renderProdutos(){
   const termo = document.getElementById("searchBar").value.toLowerCase();
   const container = document.getElementById("product-list");
 
-  const produtosVisiveis = produtos.filter(p => !CATS_EXCLUIDAS.includes(p.cat));
+  // Filtro de visibilidade (exclui itens com emEstoque: false)
+  const produtosVisiveis = produtos.filter(p => !CATS_EXCLUIDAS.includes(p.cat) && p.emEstoque !== false);
+  
   let catsFiltradas = termo !== "" ? catsUnicas : (catAtiva === "Destaques" ? ["Destaques"] : [catAtiva]);
   let html = "";
 
@@ -398,7 +419,8 @@ function renderProdutos(){
 
     lista.forEach(p => {
       let packSelectHTML = "";
-      if (p.pack) {
+      // Exibe seletor de pack apenas se existir E não estiver marcado como esgotado
+      if (p.pack && p.pack.emEstoque !== false) {
         packSelectHTML = `
         <div class="pack-selector">
           <select id="sel-${p.id}" onchange="mudarVariante(${p.id}, this.value)">
